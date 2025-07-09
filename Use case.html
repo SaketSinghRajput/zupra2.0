@@ -53,9 +53,12 @@
         }
 
         .hero-content {
+            display:flex;
             text-align: center;
             z-index: 2;
             position: relative;
+            align-items:center;
+            justify-content: space-between;
         }
 
         .hero h1 {
@@ -477,48 +480,86 @@
         }
 
         /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .container {
-                padding: 0 15px;
-            }
-            
-            .use-case-grid,
-            .case-study-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            .use-cases{padding-bottom: 80px;}
+       @media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 3rem 1rem;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero .bottle-mockup {
+        width: 120px;
+        margin: 1rem auto;
+    }
+
+    .container {
+        padding: 0 15px;
+    }
+
+    .use-case-grid,
+    .case-study-grid,
+    .flow-steps,
+    .testimonial-grid,
+    .sector-buttons {
+        grid-template-columns: 1fr;
+    }
+
+    .use-case-card,
+    .case-study,
+    .flow-step,
+    .testimonial {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+    .card-description,
+    .hero p {
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+
+    .cta-buttons,
+    .sector-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn,
+    .sector-btn {
+        width: 100%;
+        text-align: center;
+        padding: 12px;
+        margin-bottom: 10px;
+    }
+
+    .use-cases {
+        padding-bottom: 80px;
+    }
         }
     </style>
 </head>
 <body>
     <!-- Hero Section -->
     <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>From Cafés to Classrooms to Cultural Sites – Zupra Bottles Adapt to Every Brand Story</h1>
-                <p>Explore how your industry can turn bottles into powerful engagement tools.</p>
-                
-                <div class="bottle-mockup">
-                    <div class="qr-ripple"></div>
-                </div>
-                
-                <div class="cta-buttons">
-                    <a href="#use-cases" class="btn btn-primary">Explore Use Cases ↓</a>
-                    <a href="#demo" class="btn btn-secondary">Book a Demo</a>
-                </div>
-            </div>
+    <div class="container hero-content">
+        <h1>Brand Story</h1>
+        <p>Explore how your industry can turn bottles into powerful engagement tools.</p>
+        <div class="cta-buttons">
+            <a href="#use-cases" class="btn">Explore Use Cases ↓</a>
+            <a href="#demo" class="btn">Book a Demo</a>
         </div>
-    </section>
-
+        <div class="bottle-mockup"></div> <!-- your image or bottle visual -->
+    </div>
+</section>
     <!-- Use Cases Grid -->
     <section class="use-cases" id="use-cases">
         <div class="container">
