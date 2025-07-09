@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zupra Use Cases - Where Bottles Make the Difference</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: radial-gradient(circle at 50% 50%, rgba(255, 215, 0, 0.1) 0%, rgba(0, 0, 0, 0.9) 70%);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,215,0,0.1)"/></svg>') repeat;
+            animation: sparkle 3s ease-in-out infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.8; }
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 2;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: slideInUp 1s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: slideInUp 1s ease-out 0.2s both;
+        }
+
+        .bottle-mockup {
+            width: 200px;
+            height: 300px;
+            background: linear-gradient(145deg, #1a1a1a, #2a2a2a);
+            border-radius: 20px 20px 40px 40px;
+            margin: 2rem auto;
+            position: relative;
+            animation: float 3s ease-in-out infinite, rotate3d 10s linear infinite;
+            box-shadow: 0 20px 40px rgba(255, 215, 0, 0.3);
+        }
+
+        .bottle-mockup::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 60px;
+            background: #FFD700;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        .qr-ripple {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100px;
+            height: 100px;
+            border: 2px solid #FFD700;
+            border-radius: 50%;
+            animation: ripple 2s infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes rotate3d {
+            0% { transform: rotateY(0deg); }
+            100% { transform: rotateY(360deg); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        @keyframes ripple {
+            0% { transform: translate(-50%, -50%) scale(0.5); opacity: 1; }
+            100% { transform: translate(-50%, -50%) scale(2); opacity: 0; }
+        }
+
+        @keyframes slideInUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: slideInUp 1s ease-out 0.4s both;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            color: #000;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #FFD700;
+            border: 2px solid #FFD700;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(255, 215, 0, 0.3);
+        }
+
+        /* Use Case Grid */
+        .use-cases {
+            padding: 100px 0;
+            background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 100%);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .use-case-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .use-case-card {
+            background: linear-gradient(145deg, #1a1a1a, #2a2a2a);
+            border-radius: 20px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(50px);
+        }
+
+        .use-case-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .use-case-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .use-case-card:hover::before {
+            opacity: 1;
+        }
+
+        .use-case-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(255, 215, 0, 0.2);
+            border-color: #FFD700;
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #FFD700;
+        }
+
+        .card-description {
+            opacity: 0.9;
+            margin-bottom: 1rem;
+        }
+
+        .card-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 215, 0, 0.2);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #FFD700;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            opacity: 0.7;
+        }
+
+        /* Case Study Section */
+        .case-studies {
+            padding: 100px 0;
+            background: #0a0a0a;
+        }
+
+        .case-study-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .case-study {
+            background: linear-gradient(145deg, #1a1a1a, #2a2a2a);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .case-study::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #FFD700, #FFA500);
+        }
+
+        .case-brand {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #FFD700;
+            margin-bottom: 1rem;
+        }
+
+        .case-metrics {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .metric {
+            text-align: center;
+            padding: 1rem;
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .metric-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #FFD700;
+            display: block;
+        }
+
+        .metric-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Flow Builder */
+        .flow-builder {
+            padding: 100px 0;
+            background: linear-gradient(180deg, #1a1a1a 0%, #0a0a0a 100%);
+        }
+
+        .flow-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .flow-step {
+            background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            position: relative;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .flow-step:hover {
+            transform: scale(1.05);
+            border-color: #FFD700;
+        }
+
+        .step-number {
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            color: #000;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin: 0 auto 1rem;
+        }
+
+        .step-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #FFD700;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 100px 0;
+            background: #0a0a0a;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial {
+            background: linear-gradient(145deg, #1a1a1a, #2a2a2a);
+            border-radius: 20px;
+            padding: 2rem;
+            border-left: 4px solid #FFD700;
+            position: relative;
+        }
+
+        .testimonial-quote {
+            font-size: 1.1rem;
+            font-style: italic;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: #FFD700;
+        }
+
+        /* Final CTA */
+        .final-cta {
+            padding: 100px 0;
+            background: radial-gradient(circle at 50% 50%, rgba(255, 215, 0, 0.1) 0%, rgba(0, 0, 0, 0.9) 70%);
+            text-align: center;
+        }
+
+        .sector-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 3rem;
+        }
+
+        .sector-btn {
+            background: linear-gradient(145deg, #1a1a1a, #2a2a2a);
+            border: 2px solid #FFD700;
+            color: #FFD700;
+            padding: 1.5rem;
+            border-radius: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: block;
+        }
+
+        .sector-btn:hover {
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            color: #000;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(255, 215, 0, 0.3);
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .container {
+                padding: 0 15px;
+            }
+            
+            .use-case-grid,
+            .case-study-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>From Cafés to Classrooms to Cultural Sites – Zupra Bottles Adapt to Every Brand Story</h1>
+                <p>Explore how your industry can turn bottles into powerful engagement tools.</p>
+                
+                <div class="bottle-mockup">
+                    <div class="qr-ripple"></div>
+                </div>
+                
+                <div class="cta-buttons">
+                    <a href="#use-cases" class="btn btn-primary">Explore Use Cases ↓</a>
+                    <a href="#demo" class="btn btn-secondary">Book a Demo</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Use Cases Grid -->
+    <section class="use-cases" id="use-cases">
+        <div class="container">
+            <h2 class="section-title">Real-World Applications</h2>
+            
+            <div class="use-case-grid">
+                <div class="use-case-card">
+                    <span class="card-icon">🍽️</span>
+                    <h3 class="card-title">Food & Beverage</h3>
+                    <p class="card-description">QR codes unlock exclusive coupons, digital menus, and app downloads. Perfect for delivery brands, restaurants, and FMCG companies looking to drive customer engagement.</p>
+                    <div class="card-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">85%</span>
+                            <span class="stat-label">Scan Rate</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">3.2x</span>
+                            <span class="stat-label">App Downloads</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">45%</span>
+                            <span class="stat-label">Coupon Redemption</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="use-case-card">
+                    <span class="card-icon">🎓</span>
+                    <h3 class="card-title">EdTech & Startups</h3>
+                    <p class="card-description">Campus targeting made easy. Free bottles drive app traffic and student acquisition with QR codes linking to exclusive content, courses, and sign-up bonuses.</p>
+                    <div class="card-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">78%</span>
+                            <span class="stat-label">Student Engagement</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">2.8x</span>
+                            <span class="stat-label">User Acquisition</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">52%</span>
+                            <span class="stat-label">Course Signups</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="use-case-card">
+                    <span class="card-icon">🏞️</span>
+                    <h3 class="card-title">Tourism & Culture</h3>
+                    <p class="card-description">QR codes unlock verified stories, interactive guides, and AR tours. Ideal for heritage sites, museums, and state tourism boards creating immersive experiences.</p>
+                    <div class="card-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">92%</span>
+                            <span class="stat-label">Tourist Satisfaction</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">4.1x</span>
+                            <span class="stat-label">Engagement Time</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">67%</span>
+                            <span class="stat-label">Return Visits</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="use-case-card">
+                    <span class="card-icon">🏢</span>
+                    <h3 class="card-title">CSR & Government</h3>
+                    <p class="card-description">Bottles support public campaigns, clean drives, and awareness initiatives. Perfect for eco-friendly, health, and Digital India campaigns with measurable impact.</p>
+                    <div class="card-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">89%</span>
+                            <span class="stat-label">Awareness Reach</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">5.2x</span>
+                            <span class="stat-label">Social Impact</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">73%</span>
+                            <span class="stat-label">Behavior Change</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="use-case-card">
+                    <span class="card-icon">🎉</span>
+                    <h3 class="card-title">Events & Exhibitions</h3>
+                    <p class="card-description">Real-time bottle scans provide sponsor visibility, gamified contests, and lead collection. Transform events into interactive experiences with measurable ROI.</p>
+                    <div class="card-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">94%</span>
+                            <span class="stat-label">Attendee Participation</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">6.3x</span>
+                            <span class="stat-label">Lead Generation</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">81%</span>
+                            <span class="stat-label">Sponsor Satisfaction</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies -->
+    <section class="case-studies">
+        <div class="container">
+            <h2 class="section-title">Success Stories</h2>
+            
+            <div class="case-study-grid">
+                <div class="case-study">
+                    <div class="case-brand">CloudKitchen Express</div>
+                    <p>Campus-focused delivery campaign targeting 5 colleges with QR-enabled bottles offering exclusive discounts and menu access.</p>
+                    <div class="case-metrics">
+                        <div class="metric">
+                            <span class="metric-value">3,420</span>
+                            <span class="metric-label">Total Scans (6 days)</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">12.4%</span>
+                            <span class="metric-label">Conversion Rate</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">800+</span>
+                            <span class="metric-label">Coupon Redemptions</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">2.8x</span>
+                            <span class="metric-label">ROI Increase</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="case-study">
+                    <div class="case-brand">Heritage Tourism Board</div>
+                    <p>AR-enabled bottles at historical sites providing immersive storytelling and verified cultural information to enhance visitor experience.</p>
+                    <div class="case-metrics">
+                        <div class="metric">
+                            <span class="metric-value">8,750</span>
+                            <span class="metric-label">Tourist Interactions</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">89%</span>
+                            <span class="metric-label">Satisfaction Score</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">4.2x</span>
+                            <span class="metric-label">Engagement Duration</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">67%</span>
+                            <span class="metric-label">Repeat Visits</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="case-study">
+                    <div class="case-brand">EduTech Startup</div>
+                    <p>Student acquisition campaign using bottles with QR codes linking to free courses, study materials, and premium subscription offers.</p>
+                    <div class="case-metrics">
+                        <div class="metric">
+                            <span class="metric-value">5,200</span>
+                            <span class="metric-label">Student Signups</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">34%</span>
+                            <span class="metric-label">Premium Conversions</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">156%</span>
+                            <span class="metric-label">User Growth</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">4.1x</span>
+                            <span class="metric-label">Marketing ROI</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Flow Builder -->
+    <section class="flow-builder">
+        <div class="container">
+            <h2 class="section-title">How It Works in Your Industry</h2>
+            <p style="text-align: center; font-size: 1.1rem; opacity: 0.9; margin-bottom: 2rem;">See the complete journey from bottle to engagement</p>
+            
+            <div class="flow-steps">
+                <div class="flow-step">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Choose Industry</h3>
+                    <p>Select your sector and target audience for customized bottle campaigns.</p>
+                </div>
+                <div class="flow-step">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Design QR Experience</h3>
+                    <p>Create engaging QR destinations - apps, websites, AR experiences, or exclusive content.</p>
+                </div>
+                <div class="flow-step">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Deploy & Track</h3>
+                    <p>Distribute bottles and monitor real-time scan analytics and user engagement.</p>
+                </div>
+                <div class="flow-step">
+                    <div class="step-number">4</div>
+                    <h3 class="step-title">Measure Impact</h3>
+                    <p>View comprehensive dashboard with conversions, ROI, and campaign performance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">What Our Clients Say</h2>
+            
+            <div class="testimonial-grid">
+                <div class="testimonial">
+                    <p class="testimonial-quote">"We reached 1,000+ new users through Zupra with just 3,000 bottles. The campus visibility was incredible!"</p>
+                    <div class="testimonial-author">- EdTech Startup CEO</div>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-quote">"Great campus visibility. Better than posters and way more engaging than traditional marketing."</p>
+                    <div class="testimonial-author">- Marketing Director, Food Brand</div>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-quote">"The AR experience transformed how tourists interact with our heritage sites. Engagement time increased by 400%."</p>
+                    <div class="testimonial-author">- Tourism Board Official</div>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-quote">"Perfect for our CSR initiatives. We could track real impact and show measurable community engagement."</p>
+                    <div class="testimonial-author">- Corporate CSR Head</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <div class="container">
+            <h2 class="section-title">Ready to Transform Your Industry?</h2>
+            <p style="font-size: 1.2rem; opacity: 0.9; margin-bottom: 2rem;">Choose your sector and discover how Zupra can revolutionize your engagement strategy</p>
+            
+            <div class="sector-buttons">
+                <a href="#food" class="sector-btn">🥗 Food Brand</a>
+                <a href="#edtech" class="sector-btn">🎓 EdTech</a>
+                <a href="#tourism" class="sector-btn">🧳 Tourism</a>
+                <a href="#csr" class="sector-btn">🌿 CSR Campaign</a>
+                <a href="#events" class="sector-btn">🎪 Event Organizer</a>
+            </div>
+            
+            <div style="margin-top: 3rem;">
+                <a href="#demo" class="btn btn-primary" style="font-size: 1.1rem; padding: 15px 40px;">Book Your Demo Today</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll-triggered animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards and sections
+        document.querySelectorAll('.use-case-card, .case-study, .flow-step, .testimonial, .fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Staggered animation for use case cards
+        const useCards = document.querySelectorAll('.use-case-card');
+        useCards.forEach((card, index) => {
+            setTimeout(() => {
+                card.style.transitionDelay = `${index * 0.1}s`;
+            }, 100);
+        });
+
+        // Interactive hover effects for use case cards
+        useCards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-15px) scale(1.02)';
+                this.style.boxShadow = '0 25px 50px rgba(255, 215, 0, 0.3)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+                this.style.boxShadow = '0 10px 30px rgba(255, 215, 0, 0.1)';
+            });
+        });
+
+        // Flow step interactions
+        const flowSteps = document.querySelectorAll('.flow-step');
+        flowSteps.forEach((step, index) => {
+            step.addEventListener('click', function() {
+                // Remove active class from all steps
+                flowSteps.forEach(s => s.classList.remove('active'));
+                // Add active class to clicked step
+                this.classList.add('active');
+                
+                // Add pulse animation
+                this.style.animation = 'pulse 0.6s ease-in-out';
+                setTimeout(() => {
+                    this.style.animation = '';
+                }, 600);
+            });
+        });
+
+        // Sector button interactions
+        const sectorButtons = document.querySelectorAll('.sector-btn');
+        sectorButtons.forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Add clicked effect
+                this.style.transform = 'translateY(-8px) scale(0.98)';
+                this.style.boxShadow = '0 20px 40px rgba(255, 215, 0, 0.4)';
+                
+                setTimeout(() => {
+                    this.style.transform = 'translateY(-5px) scale(1)';
+                    this.style.boxShadow = '0 15px 30px rgba(255, 215, 0, 0.3)';
+                }, 150);
+                
+                // Show demo modal (placeholder)
+                showDemoModal(this.textContent);
+            });
+        });
+
+        // Demo modal functionality
+        function showDemoModal(sector) {
+            const modal = document.createElement('div');
+            modal.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.9);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 1000;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+            `;
+            
+            modal.innerHTML = `
+                <div style="
+                    background: linear-gradient(145deg, #1a1a1a, #2a2a2a);
+                    padding: 3rem;
+                    border-radius: 20px;
+                    border: 2px solid #FFD700;
+                    text-align: center;
+                    max-width: 500px;
+                    width: 90%;
+                    transform: scale(0.8);
+                    transition: transform 0.3s ease;
+                ">
+                    <h3 style="color: #FFD700; margin-bottom: 1rem; font-size: 1.5rem;">
+                        ${sector} Demo Request
+                    </h3>
+                    <p style="margin-bottom: 2rem; opacity: 0.9;">
+                        Ready to see how Zupra can transform your ${sector.toLowerCase()} campaigns?
+                    </p>
+                    <div style="display: flex; gap: 1rem; justify-content: center;">
+                        <button class="btn btn-primary" onclick="bookDemo('${sector}')">
+                            Book Demo Now
+                        </button>
+                        <button class="btn btn-secondary" onclick="closeModal()">
+                            Maybe Later
+                        </button>
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(modal);
+            
+            // Animate in
+            setTimeout(() => {
+                modal.style.opacity = '1';
+                modal.firstElementChild.style.transform = 'scale(1)';
+            }, 10);
+            
+            // Close on background click
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    closeModal();
+                }
+            });
+            
+            window.currentModal = modal;
+        }
+
+        window.closeModal = function() {
+            if (window.currentModal) {
+                window.currentModal.style.opacity = '0';
+                window.currentModal.firstElementChild.style.transform = 'scale(0.8)';
+                setTimeout(() => {
+                    document.body.removeChild(window.currentModal);
+                    window.currentModal = null;
+                }, 300);
+            }
+        };
+
+        window.bookDemo = function(sector) {
+            alert(`Demo booking for ${sector} - This would connect to your booking system!`);
+            closeModal();
+        };
+
+        // Parallax effect for hero section
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            const bottle = document.querySelector('.bottle-mockup');
+            
+            if (hero && bottle) {
+                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+                bottle.style.transform = `translateY(${scrolled * 0.3}px) rotateY(${scrolled * 0.1}deg)`;
+            }
+        });
+
+        // Add floating animation to QR ripples
+        setInterval(() => {
+            const ripples = document.querySelectorAll('.qr-ripple');
+            ripples.forEach(ripple => {
+                ripple.style.animation = 'none';
+                setTimeout(() => {
+                    ripple.style.animation = 'ripple 2s infinite';
+                }, 10);
+            });
+        }, 2000);
+
+        // Stats counter animation
+        function animateStats() {
+            const stats = document.querySelectorAll('.stat-number, .metric-value');
+            stats.forEach(stat => {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const target = entry.target;
+                            const text = target.textContent;
+                            const number = parseFloat(text.replace(/[^0-9.]/g, ''));
+                            
+                            if (!isNaN(number)) {
+                                animateNumber(target, 0, number, text);
+                            }
+                            observer.unobserve(target);
+                        }
+                    });
+                });
+                observer.observe(stat);
+            });
+        }
+
+        function animateNumber(element, start, end, originalText) {
+            const duration = 2000;
+            const startTime = performance.now();
+            
+            function update(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                
+                const current = start + (end - start) * easeOutQuart(progress);
+                element.textContent = originalText.replace(/[0-9.]+/, current.toFixed(1));
+                
+                if (progress < 1) {
+                    requestAnimationFrame(update);
+                } else {
+                    element.textContent = originalText;
+                }
+            }
+            
+            requestAnimationFrame(update);
+        }
+
+        function easeOutQuart(t) {
+            return 1 - Math.pow(1 - t, 4);
+        }
+
+        // Initialize stats animation
+        animateStats();
+
+        // Add CSS for active flow step
+        const style = document.createElement('style');
+        style.textContent = `
+            .flow-step.active {
+                background: linear-gradient(145deg, #FFD700, #FFA500);
+                color: #000;
+                transform: scale(1.05);
+                box-shadow: 0 20px 40px rgba(255, 215, 0, 0.4);
+            }
+            
+            .flow-step.active .step-number {
+                background: #000;
+                color: #FFD700;
+            }
+            
+            .flow-step.active .step-title {
+                color: #000;
+            }
+            
+            @keyframes glow {
+                0%, 100% { box-shadow: 0 0 20px rgba(255, 215, 0, 0.3); }
+                50% { box-shadow: 0 0 30px rgba(255, 215, 0, 0.6); }
+            }
+            
+            .use-case-card:hover {
+                animation: glow 2s ease-in-out infinite;
+            }
+            
+            @media (max-width: 768px) {
+                .flow-steps {
+                    grid-template-columns: 1fr;
+                }
+                
+                .sector-buttons {
+                    grid-template-columns: 1fr;
+                }
+                
+                .testimonial-grid {
+                    grid-template-columns: 1fr;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Add loading animation
+        document.addEventListener('DOMContentLoaded', function() {
+            document.body.style.opacity = '0';
+            setTimeout(() => {
+                document.body.style.transition = 'opacity 0.5s ease';
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && window.currentModal) {
+                closeModal();
+            }
+        });
+
+        // Add subtle cursor effects
+        document.addEventListener('mousemove', function(e) {
+            const cursor = document.querySelector('.cursor');
+            if (!cursor) {
+                const newCursor = document.createElement('div');
+                newCursor.className = 'cursor';
+                newCursor.style.cssText = `
+                    position: fixed;
+                    width: 10px;
+                    height: 10px;
+                    background: #FFD700;
+                    border-radius: 50%;
+                    pointer-events: none;
+                    mix-blend-mode: difference;
+                    z-index: 9999;
+                    transition: transform 0.1s ease;
+                `;
+                document.body.appendChild(newCursor);
+            }
+            
+            document.querySelector('.cursor').style.left = e.clientX - 5 + 'px';
+            document.querySelector('.cursor').style.top = e.clientY - 5 + 'px';
+        });
+
+        // Add hover effects to interactive elements
+        document.querySelectorAll('button, .btn, .sector-btn, .use-case-card, .flow-step').forEach(el => {
+            el.addEventListener('mouseenter', function() {
+                const cursor = document.querySelector('.cursor');
+                if (cursor) {
+                    cursor.style.transform = 'scale(2)';
+                }
+            });
+            
+            el.addEventListener('mouseleave', function() {
+                const cursor = document.querySelector('.cursor');
+                if (cursor) {
+                    cursor.style.transform = 'scale(1)';
+                }
+            });
+        });
+
+        console.log('🚀 Zupra Use Cases page loaded successfully!');
+    </script>
+</body>
+</html>

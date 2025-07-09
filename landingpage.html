@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raksha Bandhan Contest - Millennium World School</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #fff5e6 0%, #ffe0b3 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 480px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 30px rgba(0,0,0,0.1);
+            min-height: 100vh;
+            position: relative;
+        }
+
+        /* Desktop Responsive Design */
+        @media (min-width: 768px) {
+            .container {
+                max-width: 1200px;
+                box-shadow: 0 0 50px rgba(0,0,0,0.15);
+            }
+
+            .desktop-layout {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
+                align-items: center;
+            }
+
+            .hero {
+                padding: 60px 40px;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .hero .tagline {
+                font-size: 22px;
+            }
+
+            .contest-section,
+            .about-school,
+            .cta-section {
+                padding: 60px 40px;
+            }
+
+            .contest-header h2 {
+                font-size: 32px;
+            }
+
+            .about-content h3 {
+                font-size: 28px;
+            }
+
+            .cta-header h3 {
+                font-size: 28px;
+            }
+
+            .lead-form {
+                max-width: 600px;
+                margin: 0 auto;
+            }
+        }
+
+        /* Animated Background Elements */
+        .floating-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .floating-rakhi {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: radial-gradient(circle, #ff6b35, #d63031);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+            opacity: 0.1;
+        }
+
+        .floating-rakhi:before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 15px;
+            height: 15px;
+            background: #ffd700;
+            border-radius: 50%;
+        }
+
+        .floating-rakhi:nth-child(1) { top: 10%; left: 10%; animation-delay: 0s; }
+        .floating-rakhi:nth-child(2) { top: 20%; right: 15%; animation-delay: 2s; }
+        .floating-rakhi:nth-child(3) { top: 60%; left: 5%; animation-delay: 4s; }
+        .floating-rakhi:nth-child(4) { bottom: 20%; right: 10%; animation-delay: 1s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-20px) rotate(120deg); }
+            66% { transform: translateY(10px) rotate(240deg); }
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #ff6b35 0%, #d63031 50%, #74b9ff 100%);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M20,20 Q50,5 80,20 Q65,50 80,80 Q50,95 20,80 Q35,50 20,20' fill='none' stroke='rgba(255,255,255,0.1)' stroke-width='1'/%3E%3C/svg%3E");
+            background-size: 80px 80px;
+            animation: patternMove 20s linear infinite;
+        }
+
+        @keyframes patternMove {
+            0% { background-position: 0 0; }
+            100% { background-position: 80px 80px; }
+        }
+
+        .school-logo {
+            width: 80px;
+            height: 80px;
+            background: white;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 24px;
+            color: #d63031;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .hero h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: slideInDown 1s ease-out;
+        }
+
+        .hero .tagline {
+            font-size: 18px;
+            font-weight: 300;
+            margin-bottom: 20px;
+            opacity: 0.95;
+            animation: slideInUp 1s ease-out 0.3s both;
+        }
+
+        .rakhi-illustration {
+            width: 120px;
+            height: 120px;
+            margin: 20px auto;
+            background: radial-gradient(circle, #ffd700, #ff6b35);
+            border-radius: 50%;
+            position: relative;
+            animation: rotate 10s linear infinite;
+        }
+
+        .rakhi-illustration::before {
+            content: '🎀';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 40px;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes slideInDown {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes slideInUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Scroll Down Arrow Styles */
+        .scroll-down-arrow {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            cursor: pointer;
+            z-index: 10;
+            animation: bounce 2s infinite;
+        }
+
+        .arrow-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: rgba(255,255,255,0.9);
+            transition: all 0.3s ease;
+        }
+
+        .arrow-container:hover {
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .arrow {
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-top: 20px solid currentColor;
+            margin-bottom: 8px;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+        }
+
+        .arrow-text {
+            font-size: 12px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+
+        /* Desktop Arrow Adjustments */
+        @media (min-width: 768px) {
+            .scroll-down-arrow {
+                bottom: 30px;
+            }
+
+            .arrow {
+                border-left-width: 18px;
+                border-right-width: 18px;
+                border-top-width: 24px;
+            }
+
+            .arrow-text {
+                font-size: 14px;
+            }
+        }
+
+        /* Contest Section */
+        .contest-section {
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #fff 0%, #fff5e6 100%);
+            scroll-margin-top: 20px;
+        }
+
+        .contest-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .contest-header h2 {
+            font-size: 24px;
+            color: #d63031;
+            margin-bottom: 10px;
+            position: relative;
+        }
+
+        .contest-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #ff6b35, #ffd700);
+            border-radius: 2px;
+        }
+
+        .contest-details {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 25px;
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 8px;
+            background: #fff5e6;
+            transition: transform 0.3s ease;
+        }
+
+        .detail-item:hover {
+            transform: translateX(5px);
+        }
+
+        .detail-icon {
+            font-size: 24px;
+            margin-right: 15px;
+            width: 40px;
+        }
+
+        .upload-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #00b894, #55a3ff);
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,184,148,0.3);
+        }
+
+        .upload-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 7px 20px rgba(0,184,148,0.4);
+        }
+
+        /* About School Section */
+        .about-school {
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+            color: white;
+        }
+
+        .about-content {
+            text-align: center;
+        }
+
+        .about-content h3 {
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+
+        .about-content p {
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 25px;
+            opacity: 0.95;
+        }
+
+        .video-placeholder {
+            width: 100%;
+            height: 200px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            margin-bottom: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .video-placeholder:hover {
+            background: rgba(255,255,255,0.2);
+            transform: scale(1.02);
+        }
+
+        .testimonial {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 10px;
+            font-style: italic;
+            margin-top: 20px;
+        }
+
+        /* CTA Form Section */
+        .cta-section {
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+        }
+
+        .cta-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .cta-header h3 {
+            font-size: 22px;
+            color: #2d3436;
+            margin-bottom: 10px;
+        }
+
+        .lead-form {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #2d3436;
+            font-weight: 500;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #74b9ff;
+            box-shadow: 0 0 0 3px rgba(116,185,255,0.1);
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: auto;
+            margin-right: 10px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #fd79a8, #e84393);
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(253,121,168,0.3);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 7px 20px rgba(253,121,168,0.4);
+        }
+
+        /* Footer */
+        .footer {
+            background: #2d3436;
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            margin-bottom: 20px;
+        }
+
+        .footer-content h4 {
+            margin-bottom: 15px;
+            color: #ffd700;
+        }
+
+        .contact-info {
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .zupra-branding {
+            padding-top: 20px;
+            border-top: 1px solid #636e72;
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        .zupra-branding strong {
+            color: #74b9ff;
+        }
+
+        /* Success Message */
+        .success-message {
+            display: none;
+            background: linear-gradient(135deg, #00b894, #55a3ff);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 20px;
+            animation: slideInUp 0.5s ease-out;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 24px;
+            }
+            
+            .hero .tagline {
+                font-size: 16px;
+            }
+            
+            .contest-header h2 {
+                font-size: 20px;
+            }
+            
+            .contest-details {
+                padding: 20px;
+            }
+
+            .scroll-down-arrow {
+                bottom: 15px;
+            }
+
+            .arrow {
+                border-left-width: 12px;
+                border-right-width: 12px;
+                border-top-width: 16px;
+            }
+
+            .arrow-text {
+                font-size: 10px;
+            }
+        }
+
+        /* Large Desktop Responsive Design */
+        @media (min-width: 1200px) {
+            .container {
+                max-width: 1400px;
+            }
+
+            .hero {
+                padding: 80px 60px;
+            }
+
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            .hero .tagline {
+                font-size: 24px;
+            }
+
+            .contest-section,
+            .about-school,
+            .cta-section {
+                padding: 80px 60px;
+            }
+
+            .contest-header h2 {
+                font-size: 36px;
+            }
+
+            .about-content h3,
+            .cta-header h3 {
+                font-size: 32px;
+            }
+
+            .detail-item {
+                padding: 15px;
+                font-size: 18px;
+            }
+
+            .detail-icon {
+                font-size: 28px;
+                width: 50px;
+            }
+
+            .upload-btn,
+            .submit-btn {
+                font-size: 20px;
+                padding: 18px;
+            }
+
+            .about-content p {
+                font-size: 18px;
+                max-width: 800px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .video-placeholder {
+                height: 300px;
+                max-width: 600px;
+                margin: 25px auto;
+            }
+
+            .lead-form {
+                max-width: 700px;
+                padding: 40px;
+            }
+
+            .form-group input {
+                padding: 15px;
+                font-size: 18px;
+            }
+
+            .form-group label {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-elements">
+        <div class="floating-rakhi"></div>
+        <div class="floating-rakhi"></div>
+        <div class="floating-rakhi"></div>
+        <div class="floating-rakhi"></div>
+    </div>
+
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="school-logo">MWS</div>
+            <h1>Millennium World School</h1>
+            <p class="tagline">Celebrate the Bond of Learning – Join our Rakhi Creation Contest!</p>
+            <div class="rakhi-illustration"></div>
+            
+            <!-- Scroll Down Arrow -->
+            <div class="scroll-down-arrow" onclick="scrollToNext()">
+                <div class="arrow-container">
+                    <div class="arrow"></div>
+                    <div class="arrow-text">Explore Contest</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contest Section -->
+        <section class="contest-section" id="contest-section">
+            <div class="contest-header">
+                <h2>🏆 Rakhi Making Contest</h2>
+                <p>Open to All Students (Age 5–16)</p>
+            </div>
+
+            <div class="contest-details">
+                <div class="detail-item">
+                    <div class="detail-icon">🎨</div>
+                    <div>
+                        <strong>Theme:</strong> Showcase your creativity and win exciting prizes + a direct school visit invite!
+                    </div>
+                </div>
+
+                <div class="detail-item">
+                    <div class="detail-icon">📅</div>
+                    <div>
+                        <strong>Date:</strong> August 15th, 2025<br>
+                        <strong>Time:</strong> 10:00 AM - 2:00 PM
+                    </div>
+                </div>
+
+                <div class="detail-item">
+                    <div class="detail-icon">📍</div>
+                    <div>
+                        <strong>Venue:</strong> School Main Auditorium<br>
+                        Millennium World School Campus
+                    </div>
+                </div>
+
+                <div class="detail-item">
+                    <div class="detail-icon">🎁</div>
+                    <div>
+                        <strong>Prizes:</strong> Top 3 winners get amazing gifts + participation certificates for all!
+                    </div>
+                </div>
+
+                <button class="upload-btn" onclick="handleUpload()">
+                    📸 Upload Your Rakhi Creation
+                </button>
+            </div>
+        </section>
+
+        <!-- About School Section -->
+        <section class="about-school">
+            <div class="about-content">
+                <h3>About Millennium World School</h3>
+                <p>At Millennium World School, we believe in nurturing young minds through a perfect blend of tradition and innovation. Our campus provides a safe, culturally rich environment where students excel academically while staying connected to their roots.</p>
+                
+                <div class="video-placeholder" onclick="playVideo()">
+                    ▶️
+                    <div style="margin-left: 10px; font-size: 16px;">Watch Campus Tour</div>
+                </div>
+
+                <div class="testimonial">
+                    "The school's approach to celebrating festivals while maintaining academic excellence is truly remarkable. My daughter loves the creative activities!" - Mrs. Sharma, Parent
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Form Section -->
+        <section class="cta-section">
+            <div class="cta-header">
+                <h3>Book a Campus Visit or Get Admission Info Instantly</h3>
+                <p>Join our school family and give your child the best education experience!</p>
+            </div>
+
+            <form class="lead-form" onsubmit="handleFormSubmit(event)">
+                <div class="form-group">
+                    <label for="parentName">Parent's Name *</label>
+                    <input type="text" id="parentName" name="parentName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="mobile">Mobile Number *</label>
+                    <input type="tel" id="mobile" name="mobile" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="studentName">Student's Name *</label>
+                    <input type="text" id="studentName" name="studentName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="class">Class Interested In *</label>
+                    <input type="text" id="class" name="class" placeholder="e.g., Nursery, Class 1, Class 8" required>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="whatsapp" name="whatsapp">
+                    <label for="whatsapp">Send updates via WhatsApp</label>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    🎒 Unlock Free Info Kit & School Tour
+                </button>
+
+                <div class="success-message" id="successMessage">
+                    <h4>🎉 Thank You!</h4>
+                    <p>Your information has been submitted successfully. Our admission team will contact you within 24 hours to schedule your campus visit!</p>
+                </div>
+            </form>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <h4>Contact Millennium World School</h4>
+                <div class="contact-info">
+                    📍 123 Education Lane, Knowledge City, Patna, Bihar 800001<br>
+                    📞 +91 9876543210<br>
+                    ✉️ admissions@millenniumworld.edu.in
+                </div>
+                <p><a href="https://millenniumworld.edu.in" style="color: #74b9ff;">Visit Our Main Website</a></p>
+            </div>
+
+            <div class="zupra-branding">
+                <strong>Powered by Zupra</strong> – The Beverage That Talks Back<br>
+                <small>We respect your data. No spam. 🔒</small>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Form submission handler
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData);
+            
+            // Simulate form submission
+            console.log('Form submitted:', data);
+            
+            // Show success message
+            document.getElementById('successMessage').style.display = 'block';
+            event.target.style.display = 'none';
+            
+            // Scroll to success message
+            document.getElementById('successMessage').scrollIntoView({ 
+                behavior: 'smooth' 
+            });
+
+            // In a real implementation, you would send this data to your backend
+            // Example: 
+            // fetch('/submit-lead', {
+            //     method: 'POST',
+            //     headers: { 'Content-Type': 'application/json' },
+            //     body: JSON.stringify(data)
+            // });
+        }
+
+        // Scroll down arrow handler
+        function scrollToNext() {
+            document.getElementById('contest-section').scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+        function handleUpload() {
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.accept = 'image/*';
+            input.onchange = function(e) {
+                const file = e.target.files[0];
+                if (file) {
+                    alert(`Great! Your rakhi photo "${file.name}" is ready to upload. In a real implementation, this would be sent to the school's submission system.`);
+                }
+            };
+            input.click();
+        }
+
+        // Video play handler
+        function playVideo() {
+            alert('Campus tour video would play here. In a real implementation, this would open a video player or YouTube embed.');
+        }
+
+        // Add some interactive sparkle effects
+        function createSparkle() {
+            const sparkle = document.createElement('div');
+            sparkle.innerHTML = '✨';
+            sparkle.style.position = 'fixed';
+            sparkle.style.left = Math.random() * 100 + 'vw';
+            sparkle.style.top = Math.random() * 100 + 'vh';
+            sparkle.style.fontSize = '20px';
+            sparkle.style.pointerEvents = 'none';
+            sparkle.style.zIndex = '1000';
+            sparkle.style.animation = 'sparkleFloat 3s ease-out forwards';
+            
+            document.body.appendChild(sparkle);
+            
+            setTimeout(() => {
+                sparkle.remove();
+            }, 3000);
+        }
+
+        // Add sparkle animation CSS
+        const sparkleCSS = `
+            @keyframes sparkleFloat {
+                0% { opacity: 1; transform: translateY(0px) scale(1); }
+                100% { opacity: 0; transform: translateY(-100px) scale(0.5); }
+            }
+        `;
+        const style = document.createElement('style');
+        style.textContent = sparkleCSS;
+        document.head.appendChild(style);
+
+        // Create sparkles periodically
+        setInterval(createSparkle, 2000);
+
+        // Add smooth scrolling for better UX
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
