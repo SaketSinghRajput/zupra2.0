@@ -51,6 +51,84 @@
             0%, 100% { transform: translateY(0px) rotate(0deg); }
             50% { transform: translateY(-20px) rotate(180deg); }
         }
+        .main-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #000;
+    padding: 12px 30px;
+    border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+
+.zupra-logo {
+    height: 100px;
+    width: auto;
+    margin-right: 60px;
+}
+
+.header-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #FFD700;
+}        
+
+    .user-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+        .nav-links a {
+    margin-left: 25px;
+    text-decoration: none;
+    font-weight: 500;
+    color: #eeeeee;
+    transition: color 0.3s ease;
+    font-size: 1rem;
+}
+.nav-links .book-demo-btn {
+    background-color: #FFD700;
+    color: #000 !important;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 600;
+    margin-left: 25px;
+    transition: all 0.3s ease;
+}
+.nav-links .book-demo-btn:hover {
+    background-color: #FFA500;
+    color: #000 !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.nav-links a:hover {
+    color: #FFA500;
+}
+.container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+            justify-content: center;
+}
 
         /* Hero Section */
         .hero {
@@ -509,6 +587,96 @@
             color: #000;
             transform: translateY(-2px);
         }
+        .footer {
+  background-color: #111;
+  padding: 40px 20px;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  margin:auto;
+  max-width:1300px;
+}
+
+.footer-logo img {
+  width: 120px;
+}
+
+.footer-column 
+.footer-logo{
+    flex:1;
+  min-width: 200px;
+}
+
+.footer-column h4 {
+  color: gold;
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.footer-column a {
+  display: block;
+  color: white;
+  margin-bottom: 8px;
+  text-decoration: none;
+  margin: 5px 0;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.footer-column a:hover {
+  color: gold;
+}
+
+.footer-column hr {
+  border: 1px solid #555;
+  margin: 10px 0;
+}
+
+.subscribe {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.subscribe input {
+  padding: 8px;
+  border: none;
+  border-radius: 25px;
+  flex: 1;
+}
+
+.subscribe button {
+  padding: 8px 50px;
+  background-color: rgb(255, 204, 0);
+  border: none;
+  color: #111;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  border-radius: 25px;
+}
+
+.subscribe button:hover {
+  background-color: #fbd500;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #444;
+  font-size: 14px;
+  color: #aaa;
+  max-width: 100%;
+}
+
 
         /* Responsive Design */
         @media (max-width: 768px) {
@@ -517,23 +685,43 @@
                 align-items: center;
             }
 
-            .contact-cards {
-                grid-template-columns: 1fr;
-            }
+            .footer-container {
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+    overflow-x: auto;
+  }
 
-            .form-container {
-                padding: 20px;
-            }
+  .footer-column,
+  .footer-logo {
+    flex: 0 0 auto; /* Don't shrink */
+    min-width: max-content;
+  }
 
-            .qr-modal {
-                right: 10px;
-                top: 10px;
-                padding: 15px;
-            }
+  .subscribe {
+    flex-direction: column;
+  }
+
+  .subscribe input,
+  .subscribe button {
+    width: 100%;
+  }
+
+  .footer-bottom {
+    text-align: left;
+    padding-left: 10px;
+  }
         }
     </style>
 </head>
 <body>
+    <div id="header-placeholder"></div>
+
+     <div class="container">
+</header>
+
     <!-- Animated Background -->
     <div class="bg-particles" id="particles"></div>
 
@@ -694,48 +882,6 @@
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <a href="#">About Zupra</a>
-                    <a href="#">Our Services</a>
-                    <a href="#">Case Studies</a>
-                    <a href="#">Pricing</a>
-                </div>
-                <div class="footer-section">
-                    <h3>Resources</h3>
-                    <a href="#">Download Pitch Deck</a>
-                    <a href="#">Media Kit</a>
-                    <a href="#">Brand Guidelines</a>
-                    <a href="#">API Documentation</a>
-                </div>
-                <div class="footer-section">
-                    <h3>Legal</h3>
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
-                    <a href="#">Refund Policy</a>
-                    <a href="#">Cookie Policy</a>
-                </div>
-                <div class="footer-section">
-                    <h3>Connect</h3>
-                    <p>Follow us for updates and insights</p>
-                    <div class="social-icons">
-                        <a href="#" class="social-icon">📘</a>
-                        <a href="#" class="social-icon">💼</a>
-                        <a href="#" class="social-icon">🐦</a>
-                        <a href="#" class="social-icon">📷</a>
-                    </div>
-                </div>
-            </div>
-            <div style="text-align: center; padding-top: 20px; border-top: 1px solid #333; color: #666;">
-                <p>&copy; 2025 Zupra. All rights reserved. | Smart Bottle Advertising & Tourism Engagement</p>
-            </div>
-        </div>
-    </footer>
-
     <script>
         // Animated Background Particles
         function createParticles() {
@@ -840,5 +986,56 @@
             }
         });
     </script>
+
+
+ <footer class="footer">
+  <div class="footer-container">
+    <!-- Logo -->
+    <div class="footer-logo">
+      <img src="zupraa2.png" alt="Zupraa" />
+    </div>
+
+    <!-- Company Column -->
+    <div class="footer-column">
+      <h4>Company</h4>
+      <a href="#">About Us</a>
+      <a href="#">Career</a>
+      <a href="#">Press</a>
+      <a href="#">Partnerships</a>
+    </div>
+
+    <!-- Support Column -->
+    <div class="footer-column">
+      <h4>Support</h4>
+      <a href="#">Contact</a>
+      <a href="#">Help Center</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+    </div>
+
+    <!-- Subscribe Column -->
+    <div class="footer-column">
+      <h4>Join the Circular Movement</h4>
+      <hr />
+      <div class="subscribe">
+        <input type="email" placeholder="Enter your email" />
+        <button>Subscribe</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Bottom -->
+  <div class="footer-bottom">
+    &copy; 2024 Zupraa. All rights reserved. | Transforming bottles into smart advertising platforms.
+  </div>
+</footer>
+<script>
+  fetch("header.html")
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById("header-placeholder").innerHTML = data;
+    });
+</script>
+
 </body>
 </html>
