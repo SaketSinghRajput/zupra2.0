@@ -24,13 +24,73 @@
             margin: 0 auto;
             padding: 0 20px;
         }
+        .main-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 30px; 
+  z-index: 1000;
+  border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+  height: 70px; 
+}
+
+.zupra-logo {
+  height: 80px;   
+  width: auto;
+  object-fit: contain;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.nav-links a {
+  color: #F8F8F8;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 6px 12px;
+  transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #FFD700;
+}
+
+.book-demo-btn {
+  background: linear-gradient(135deg, #FFD700, #000000);
+  color: #000;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.book-demo-btn:hover {
+  background: linear-gradient(135deg, #FFA500, #FFD700);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(255, 215, 0, 0.3);
+}
+
+/* Push page content down so it's not hidden behind header */
+body {
+  padding-top: 80px;
+}
 
         /* Hero Section */
         .hero {
+            padding-bottom:100px;
             min-height: 100vh;
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: space-between;
             position: relative;
             background: radial-gradient(circle at 50% 50%, rgba(255, 215, 0, 0.1) 0%, rgba(0, 0, 0, 0.9) 70%);
             overflow: hidden;
@@ -53,6 +113,9 @@
         }
 
         .hero-content {
+            padding: 4rem 2rem;
+            flex-wrap: wrap;
+            gap: 2rem;
             display:flex;
             text-align: center;
             z-index: 2;
@@ -80,6 +143,7 @@
         }
 
         .bottle-mockup {
+            margin-bottom: 0; 
             width: 200px;
             height: 300px;
             background: linear-gradient(145deg, #1a1a1a, #2a2a2a);
@@ -175,9 +239,41 @@
             transform: translateY(-2px);
             box-shadow: 0 10px 20px rgba(255, 215, 0, 0.3);
         }
+        .hero-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  width: 100%;
+  padding: 0 2rem;
+}
+
+.hero-text-block {
+  flex: 1;
+  text-align: left;
+  min-width: 300px;
+}
+
+@media (max-width: 768px) {
+  .hero-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-text-block {
+    text-align: center;
+  }
+
+  .cta-buttons {
+    justify-content: center;
+  }
+}
 
         /* Use Case Grid */
         .use-cases {
+            position:relative;
+            z-index: 2;
             padding-bottom: 120px;
             padding: 100px 0;
             background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 100%);
@@ -218,6 +314,9 @@
             opacity: 1;
             transform: translateY(0);
         }
+        #use-cases {
+  border: 2px solid yellow;
+}
 
         .use-case-card::before {
             content: '';
@@ -478,9 +577,14 @@
             opacity: 1;
             transform: translateY(0);
         }
-
+    * {
+    transition: all 0.3s ease-in-out;
+}
+* {
+    transition: all 0.3s ease-in-out;
+}
         /* Responsive */
-       @media (max-width: 768px) {
+@media (max-width: 768px) {
     .hero {
         flex-direction: column;
         text-align: center;
@@ -544,21 +648,146 @@
     .use-cases {
         padding-bottom: 80px;
     }
-        }
+    .footer-container {
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+    overflow-x: auto;
+  }
+
+  .footer-column,
+  .footer-logo {
+    flex: 0 0 auto; /* Don't shrink */
+    min-width: max-content;
+  }
+
+  .subscribe {
+    flex-direction: column;
+  }
+
+  .subscribe input,
+  .subscribe button {
+    width: 100%;
+  }
+
+  .footer-bottom {
+    text-align: left;
+    padding-left: 10px;
+  }
+}
+.footer {
+  background-color: #111;
+  padding: 40px 20px;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  margin:auto;
+  max-width:1300px;
+}
+
+.footer-logo img {
+  width: 120px;
+}
+
+.footer-column 
+.footer-logo{
+    flex:1;
+  min-width: 200px;
+}
+
+.footer-column h4 {
+  color: gold;
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.footer-column a {
+  display: block;
+  color: white;
+  margin-bottom: 8px;
+  text-decoration: none;
+  margin: 5px 0;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.footer-column a:hover {
+  color: gold;
+}
+
+.footer-column hr {
+  border: 1px solid #555;
+  margin: 10px 0;
+}
+
+.subscribe {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.subscribe input {
+  padding: 8px;
+  border: none;
+  border-radius: 25px;
+  flex: 1;
+}
+
+.subscribe button {
+  padding: 8px 50px;
+  background-color: rgb(255, 204, 0);
+  border: none;
+  color: #111;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  border-radius: 25px;
+}
+
+.subscribe button:hover {
+  background-color: #fbd500;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #444;
+  font-size: 14px;
+  color: #aaa;
+  max-width: 100%;
+}
     </style>
 </head>
 <body>
+    <div id="header-placeholder"></div>
+</header>
     <!-- Hero Section -->
     <section class="hero">
-    <div class="container hero-content">
-        <h1>Brand Story</h1>
-        <p>Explore how your industry can turn bottles into powerful engagement tools.</p>
-        <div class="cta-buttons">
-            <a href="#use-cases" class="btn">Explore Use Cases ↓</a>
-            <a href="#demo" class="btn">Book a Demo</a>
-        </div>
-        <div class="bottle-mockup"></div> <!-- your image or bottle visual -->
+  <div class="container hero-content">
+    <div class="hero-text-block">
+      <h1>Brand Story</h1>
+      <p>Explore how your industry can turn bottles into powerful engagement tools.</p>
+      
+      <div class="cta-buttons">
+        <a href="#use-cases" class="btn btn-secondary">Explore Use Cases ↓</a>
+        <a href="demo.html" class="btn btn-primary">Book a Demo</a>
+      </div>
     </div>
+
+    <div class="bottle-mockup">
+      <div class="qr-ripple"></div>
+    </div>
+  </div>
 </section>
     <!-- Use Cases Grid -->
     <section class="use-cases" id="use-cases">
@@ -1173,5 +1402,54 @@
 
         console.log('🚀 Zupra Use Cases page loaded successfully!');
     </script>
+    <script>
+  fetch("header.html")
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById("header-placeholder").innerHTML = data;
+    });
+</script>
 </body>
 </html>
+<footer class="footer">
+  <div class="footer-container">
+    <!-- Logo -->
+    <div class="footer-logo">
+      <img src="zupraa2.png" alt="Zupraa" />
+    </div>
+
+    <!-- Company Column -->
+    <div class="footer-column">
+      <h4>Company</h4>
+      <a href="#">About Us</a>
+      <a href="#">Career</a>
+      <a href="#">Press</a>
+      <a href="#">Partnerships</a>
+    </div>
+
+    <!-- Support Column -->
+    <div class="footer-column">
+      <h4>Support</h4>
+      <a href="#">Contact</a>
+      <a href="#">Help Center</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+    </div>
+
+    <!-- Subscribe Column -->
+    <div class="footer-column">
+      <h4>Join the Circular Movement</h4>
+      <hr />
+      <div class="subscribe">
+        <input type="email" placeholder="Enter your email" />
+        <button>Subscribe</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Bottom -->
+  <div class="footer-bottom">
+    &copy; 2024 Zupraa. All rights reserved. | Transforming bottles into smart advertising platforms.
+  </div>
+</footer>
+
