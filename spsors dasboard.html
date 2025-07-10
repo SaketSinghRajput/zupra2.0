@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zupra - Sponsor Dashboard</title>
+    <title>Zupra - Sposor Dashboard</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -27,23 +27,36 @@
         }
 
         /* Header */
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
-            border-bottom: 1px solid rgba(255, 215, 0, 0.2);
-            margin-bottom: 30px;
-        }
+    .main-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #000;
+    padding: 12px 30px;
+    border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+.header-left {
+    display: flex;
+    align-items: center;
+}
 
-        .logo {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #FFD700;
-            text-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
-        }
 
-        .user-info {
+.zupra-logo {
+    height: 100px;
+    width: auto;
+    margin-right: 60px;
+}
+
+.header-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #FFD700;
+}        
+
+    .user-info {
             display: flex;
             align-items: center;
             gap: 15px;
@@ -59,8 +72,51 @@
             justify-content: center;
             font-weight: 600;
         }
+        .nav-links a {
+    margin-left: 25px;
+    text-decoration: none;
+    font-weight: 500;
+    color: #eeeeee;
+    transition: color 0.3s ease;
+    font-size: 1rem;
+}
+.nav-links .book-demo-btn {
+    background-color: #FFD700;
+    color: #000 !important;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 600;
+    margin-left: 25px;
+    transition: all 0.3s ease;
+}
+.nav-links .book-demo-btn:hover {
+    background-color: #FFA500;
+    color: #000 !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
 
-        /* Glass Card Base */
+.nav-links a:hover {
+    color: #FFA500;
+}
+
+.welcome-banner {
+    background-color: #111;
+    color: #FFD700;
+    text-align: center;
+    padding: 20px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+}
+.container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+            justify-content: center;
+         }
+
+     /* Glass Card Base */
         .glass-card {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(10px);
@@ -278,6 +334,21 @@
         }
 
         /* Buttons */
+       .book-demo-btn {
+    background: linear-gradient(135deg, #FFD700, #000000);
+    color: #000;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.book-demo-btn:hover {
+    background: linear-gradient(135deg, #FFA500, #FFD700);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(255, 215, 0, 0.3);
+}
+
         .btn {
             padding: 8px 16px;
             border: none;
@@ -577,19 +648,140 @@
             color: #3B82F6;
             border: 1px solid #3B82F6;
         }
+
+        .footer {
+  background-color: #111;
+  padding: 40px 20px;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  margin:auto;
+  max-width:1300px;
+}
+
+.footer-logo img {
+  width: 120px;
+}
+
+.footer-column 
+.footer-logo{
+    flex:1;
+  min-width: 200px;
+}
+
+.footer-column h4 {
+  color: gold;
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.footer-column a {
+  display: block;
+  color: white;
+  margin-bottom: 8px;
+  text-decoration: none;
+  margin: 5px 0;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.footer-column a:hover {
+  color: gold;
+}
+
+.footer-column hr {
+  border: 1px solid #555;
+  margin: 10px 0;
+}
+
+.subscribe {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.subscribe input {
+  padding: 8px;
+  border: none;
+  border-radius: 25px;
+  flex: 1;
+}
+
+.subscribe button {
+  padding: 8px 50px;
+  background-color: rgb(255, 204, 0);
+  border: none;
+  color: #111;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  border-radius: 25px;
+}
+
+.subscribe button:hover {
+  background-color: #fbd500;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #444;
+  font-size: 14px;
+  color: #aaa;
+  max-width: 100%;
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+    overflow-x: auto;
+  }
+
+  .footer-column,
+  .footer-logo {
+    flex: 0 0 auto; /* Don't shrink */
+    min-width: max-content;
+  }
+
+  .subscribe {
+    flex-direction: column;
+  }
+
+  .subscribe input,
+  .subscribe button {
+    width: 100%;
+  }
+
+  .footer-bottom {
+    text-align: left;
+    padding-left: 10px;
+  }
+}
     </style>
 </head>
 <body>
     <div class="container">
         <!-- Header -->
-        <header class="header">
-            <div class="logo">Zupra</div>
-            <div class="user-info">
-                <span>Welcome back, Millennium World School</span>
-                <div class="avatar">MWS</div>
-            </div>
-        </header>
 
+        <div id="header-placeholder"></div>
+         <header class="main-header">
+</header>
+
+<div class="welcome-banner">
+    <h1>Welcome to Millennium School</h1>
+</div>
         <!-- Summary Cards -->
         <section class="summary-grid">
             <div class="glass-card summary-card">
@@ -1184,3 +1376,53 @@
             }, 100);
         });
     </script>
+    <footer class="footer">
+  <div class="footer-container">
+    <!-- Logo -->
+    <div class="footer-logo">
+      <img src="zupraa2.png" alt="Zupraa" />
+    </div>
+
+    <!-- Company Column -->
+    <div class="footer-column">
+      <h4>Company</h4>
+      <a href="#">About Us</a>
+      <a href="#">Career</a>
+      <a href="#">Press</a>
+      <a href="#">Partnerships</a>
+    </div>
+
+    <!-- Support Column -->
+    <div class="footer-column">
+      <h4>Support</h4>
+      <a href="#">Contact</a>
+      <a href="#">Help Center</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+    </div>
+
+    <!-- Subscribe Column -->
+    <div class="footer-column">
+      <h4>Join the Circular Movement</h4>
+      <hr />
+      <div class="subscribe">
+        <input type="email" placeholder="Enter your email" />
+        <button>Subscribe</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Bottom -->
+  <div class="footer-bottom">
+    &copy; 2024 Zupraa. All rights reserved. | Transforming bottles into smart advertising platforms.
+  </div>
+</footer>
+<script>
+  fetch("header.html")
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById("header-placeholder").innerHTML = data;
+    });
+</script>
+
+</body>
