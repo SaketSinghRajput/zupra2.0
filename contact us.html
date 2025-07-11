@@ -534,9 +534,13 @@
 
         /* Footer */
         .footer {
-            background: #0a0a0a;
-            padding: 60px 0 40px;
-            border-top: 1px solid #333;
+  width: 100%;
+  background-color: #000000;  
+  color: white;
+  font-family: Arial, sans-serif;
+  padding: 60px 20px 40px;
+  margin-top: 0;
+  border-top: 1px solid #333;
         }
 
         .footer-content {
@@ -587,22 +591,16 @@
             color: #000;
             transform: translateY(-2px);
         }
-        .footer {
-  background-color: #111;
-  padding: 40px 20px;
-  color: white;
-  font-family: Arial, sans-serif;
-}
-
 .footer-container {
+  max-width: 1300px;
+  margin: 0 auto; /* Center the inner content */
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-start;
   gap: 40px;
-  margin:auto;
-  max-width:1300px;
 }
+
 
 .footer-logo img {
   width: 120px;
@@ -713,8 +711,22 @@
     text-align: left;
     padding-left: 10px;
   }
-        }
-    </style>
+.map-section {
+  background-color: #111; /* Match the footer background */
+  color: white;           /* Ensure text stays visible */
+  padding-bottom: 0;      /* Remove unnecessary space */
+}
+
+.map-section .container {
+  padding-bottom: 0;
+}
+
+.map-container {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+}
+</style>
 </head>
 <body>
     <div id="header-placeholder"></div>
@@ -881,6 +893,44 @@
             <button class="btn btn-primary" onclick="window.open('https://wa.me/91XXXXXXXXXX', '_blank')">Start WhatsApp Chat</button>
         </div>
     </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="zupraa2.png" alt="Zupraa" />
+            </div>
+            <div class="footer-column">
+                <h4>Company</h4>
+                <a href="#">About Us</a>
+                <a href="#">Career</a>
+                <a href="#">Press</a>
+                <a href="#">Partnerships</a>
+            </div>
+            <div class="footer-column">
+                <h4>Support</h4>
+                <a href="#">Contact</a>
+                <a href="#">Help Center</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+            <div class="footer-column">
+                <h4>Join the Circular Movement</h4>
+                <hr />
+                <div class="subscribe">
+                    <input type="email" placeholder="Enter your email" />
+                    <button>Subscribe</button>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 Zupraa. All rights reserved. | Transforming bottles into smart advertising platforms.
+        </div>
+    </footer>
+
+
+
+
 
     <script>
         // Animated Background Particles
@@ -985,50 +1035,9 @@
                 chatPopup.classList.remove('active');
             }
         });
+        
     </script>
 
-
- <footer class="footer">
-  <div class="footer-container">
-    <!-- Logo -->
-    <div class="footer-logo">
-      <img src="zupraa2.png" alt="Zupraa" />
-    </div>
-
-    <!-- Company Column -->
-    <div class="footer-column">
-      <h4>Company</h4>
-      <a href="#">About Us</a>
-      <a href="#">Career</a>
-      <a href="#">Press</a>
-      <a href="#">Partnerships</a>
-    </div>
-
-    <!-- Support Column -->
-    <div class="footer-column">
-      <h4>Support</h4>
-      <a href="#">Contact</a>
-      <a href="#">Help Center</a>
-      <a href="#">Privacy Policy</a>
-      <a href="#">Terms of Service</a>
-    </div>
-
-    <!-- Subscribe Column -->
-    <div class="footer-column">
-      <h4>Join the Circular Movement</h4>
-      <hr />
-      <div class="subscribe">
-        <input type="email" placeholder="Enter your email" />
-        <button>Subscribe</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Footer Bottom -->
-  <div class="footer-bottom">
-    &copy; 2024 Zupraa. All rights reserved. | Transforming bottles into smart advertising platforms.
-  </div>
-</footer>
 <script>
   fetch("header.html")
     .then(res => res.text())
@@ -1038,4 +1047,4 @@
 </script>
 
 </body>
-</html>
+</html> 
