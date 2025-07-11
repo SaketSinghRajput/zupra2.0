@@ -25,25 +25,28 @@
             padding: 0 20px;
         }
         .main-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.95);
-  backdrop-filter: blur(10px);
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 30px; 
-  z-index: 1000;
-  border-bottom: 1px solid rgba(255, 215, 0, 0.2);
-  height: 70px; 
+    align-items: center;
+    justify-content: space-between;
+    background-color: #000;
+    padding: 12px 20px;
+    border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-.zupra-logo {
-  height: 80px;   
+.header-left{
+  height: 75px;   
   width: auto;
   object-fit: contain;
+}
+.zupra-logo {
+  height: 75px!important;   
+  width: auto;
+  object-fit: contain;
+  max-height: 100%;
+  
 }
 
 .nav-links {
@@ -79,9 +82,19 @@
   box-shadow: 0 4px 10px rgba(255, 215, 0, 0.3);
 }
 
-/* Push page content down so it's not hidden behind header */
-body {
-  padding-top: 80px;
+
+@media (max-width: 768px) {
+  .main-header {
+    padding: 18px 30px;
+  }
+
+  .header-left .zupra-logo {
+    height: 60px;
+  }
+
+  body {
+    padding-top: 100px;
+  }
 }
 
         /* Hero Section */
@@ -1452,4 +1465,5 @@ body {
     &copy; 2024 Zupraa. All rights reserved. | Transforming bottles into smart advertising platforms.
   </div>
 </footer>
+
 
